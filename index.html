@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07152f">
+<title>TECH MASTER | ROBÓTICA 2026</title>
+
+<style>
+:root {
+  --navy: #07152f;
+  --navy2: #0b2145;
+  --navy3: #102e59;
+  --blue: #1769e0;
+  --cyan: #65d2ff;
+  --white: #f4f9ff;
+  --muted: #a9bfd9;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav {
+  background: #061126;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #ffffff15;
+}
+
+.navin {
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  font-weight: 900;
+  font-size: 19px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.brand span {
+  color: var(--cyan);
+}
+
+.brand small {
+  display: block;
+  color: var(--cyan);
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.links {
+  display: flex;
+  gap: 22px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.links a {
+  color: #c6d9ef;
+  transition: .3s;
+}
+
+.links a:hover {
+  color: var(--cyan);
+}
+
+.hero {
+  min-height: 580px;
+  background:
+    radial-gradient(circle at 80% 30%, #1769e055, transparent 30%),
+    linear-gradient(120deg, #061126, #0b2852 70%, #103c70);
+  display: flex;
+  align-items: center;
+  padding: 80px 25px;
+  overflow: hidden;
+}
+
+.wrap {
+  max-width: 1150px;
+  margin: auto;
+  width: 100%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+h1 {
+  font-size: clamp(43px, 6vw, 75px);
+  line-height: 1.05;
+  margin: 20px 0;
+  letter-spacing: -2px;
+}
+
+h1 span {
+  color: var(--cyan);
+}
+
+.hero p {
+  color: #c5d8ed;
+  max-width: 600px;
+  font-size: 17px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #65d2ff, #287bfa);
+  color: #06152f;
+  font-weight: bold;
+  margin: 15px 8px 0 0;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px #1769e055;
+}
+
+.btn.alt {
+  background: transparent;
+  border: 1px solid #65d2ff88;
+  color: white;
+}
+
+.robot {
+  height: 310px;
+  border: 1px solid #65d2ff44;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #ffffff12, #1769e022);
+  display: grid;
+  place-items: center;
+  font-size: 110px;
+  color: var(--cyan);
+  box-shadow: 0 0 60px #1769e022;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: -30px auto 0;
+  position: relative;
+  padding: 0 20px;
+  max-width: 1050px;
+}
+
+.stat {
+  background: #0d2447;
+  border: 1px solid #24466f;
+  padding: 20px;
+  border-radius: 13px;
+  text-align: center;
+}
+
+.stat b {
+  display: block;
+  color: var(--cyan);
+  font-size: 27px;
+}
+
+section {
+  padding: 85px 25px;
+}
+
+.kicker {
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.title {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  margin: 12px 0;
+  color: white;
+}
+
+.intro {
+  color: var(--muted);
+  max-width: 750px;
+  margin-bottom: 35px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about p {
+  color: #b7cbe2;
+}
+
+.panel {
+  padding: 35px;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #102e59, #0a1e3b);
+  border: 1px solid #28517d;
+  box-shadow: 0 15px 40px #0003;
+}
+
+.panel h2 {
+  color: var(--cyan);
+}
+
+.quote {
+  border-left: 4px solid var(--cyan);
+  background: #102e59;
+  padding: 17px;
+  margin-top: 25px;
+  color: white;
+  font-weight: bold;
+}
+
+.blue-section {
+  background: #091c39;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: linear-gradient(145deg, #102b51, #0a1e3b);
+  padding: 25px;
+  border: 1px solid #24466f;
+  border-radius: 17px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: var(--cyan);
+  box-shadow: 0 15px 35px #1769e033;
+}
+
+.ico {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #163c69;
+  color: var(--cyan);
+  font-size: 27px;
+}
+
+.card h3 {
+  color: var(--cyan);
+  font-size: 18px;
+}
+
+.card p {
+  color: #b4c9df;
+  font-size: 14px;
+}
+
+/* PROYECTOS */
+
+#proyectos {
+  background: #07152f;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #102d52, #0a1e3b);
+  border: 1px solid #24517d;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: .3s;
+  box-shadow: 0 15px 35px #0005;
+}
+
+.project:hover {
+  transform: translateY(-7px);
+  border-color: var(--cyan);
+  box-shadow: 0 15px 40px #168bff33;
+}
+
+.visual {
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+  font-size: 75px;
+  color: var(--cyan);
+  background: radial-gradient(circle, #1769e0 0%, #0a2345 70%);
+  border-bottom: 1px solid #24517d;
+}
+
+.project-body {
+  padding: 27px;
+}
+
+.project-body h3 {
+  color: #75d8ff;
+  font-size: 21px;
+}
+
+.project-body p {
+  color: #c2d7ec;
+  font-size: 14px;
+}
+
+.project-body b {
+  color: white;
+}
+
+.project-tag {
+  display: inline-block;
+  color: var(--cyan);
+  background: #163b65;
+  border: 1px solid #286394;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.team-section {
+  background: #091c39;
+}
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.person {
+  background: linear-gradient(145deg, #102d52, #0a1e3b);
+  border: 1px solid #24517d;
+  border-radius: 17px;
+  text-align: center;
+  padding: 25px 15px;
+  transition: .3s;
+}
+
+.person:hover {
+  border-color: var(--cyan);
+  transform: translateY(-5px);
+}
+
+.avatar {
+  margin: auto auto 15px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, #75ddff, #1769e0);
+  color: #07152f;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.person h3 {
+  font-size: 15px;
+}
+
+.person p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.shot {
+  min-height: 200px;
+  border: 1px solid #28517d;
+  border-radius: 17px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  color: white;
+  background:
+    radial-gradient(circle at 80% 20%, #65d2ff55, transparent 30%),
+    linear-gradient(140deg, #102e59, #07152f);
+  transition: .3s;
+}
+
+.shot:hover {
+  border-color: var(--cyan);
+  transform: scale(1.02);
+}
+
+.shot small {
+  color: var(--cyan);
+  letter-spacing: 2px;
+}
+
+.conclusion {
+  background: #091c39;
+}
+
+.conbox {
+  background: linear-gradient(145deg, #102d52, #0a1e3b);
+  border: 1px solid #24517d;
+  border-radius: 20px;
+  padding: 32px;
+  color: #c2d7ec;
+}
+
+footer {
+  background: #040d1e;
+  color: #9db5d0;
+  text-align: center;
+  padding: 30px;
+  font-size: 13px;
+  border-top: 1px solid #ffffff15;
+}
+
+footer b {
+  color: var(--cyan);
+  letter-spacing: 2px;
+}
+
+@media(max-width:850px) {
+  .hero-grid,
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .team {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width:600px) {
+  .navin {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .robot {
+    height: 200px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cards,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 60px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="navin">
+
+    <a class="brand" href="#inicio">
+      <span>✦</span> TECH MASTER
+      <small>ROBÓTICA 2026</small>
+    </a>
+
+    <nav class="links">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#aprendizajes">Aprendizajes</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#galeria">Galería</a>
+      <a href="#conclusion">Conclusión</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<!-- INICIO -->
+
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+
+    <div>
+      <div class="eyebrow">
+        COLEGIO CLEMENTE ALTHAUS
+      </div>
+
+      <h1>
+        TECH MASTER
+        <br>
+        <span>ROBÓTICA 2026</span>
+      </h1>
+
+      <p>
+        Exploramos la tecnología, programamos ideas y construimos soluciones.
+        Este es nuestro portafolio de aprendizajes y proyectos del área de robótica.
+      </p>
+
+      <a class="btn" href="#proyectos">EXPLORAR PROYECTOS ↗</a>
+      <a class="btn alt" href="#nosotros">CONOCER MÁS</a>
+    </div>
+
+    <div class="robot">
+      ⚙
+    </div>
+
+  </div>
+</section>
+
+<div class="stats">
+
+  <div class="stat">
+    <b>04</b>
+    Áreas de aprendizaje
+  </div>
+
+  <div class="stat">
+    <b>2026</b>
+    Un año de creación
+  </div>
+
+  <div class="stat">
+    <b>∞</b>
+    Ideas por construir
+  </div>
+
+</div>
+
+<!-- NOSOTROS -->
+
+<section id="nosotros">
+  <div class="wrap about">
+
+    <div>
+      <div class="kicker">01 / SOBRE TECH MASTER</div>
+
+      <h2 class="title">
+        Aprender haciendo.
+        <br>
+        Crear para innovar.
+      </h2>
+
+      <p>
+        Tech Master es un curso del Colegio Clemente Althaus
+        que integra robótica, cómputo y ciencia.
+        Esta página está enfocada en el área de robótica
+        y reúne los aprendizajes, experiencias y proyectos
+        desarrollados durante el año.
+      </p>
+
+      <div class="quote">
+        «Creamos, diseñamos e innovamos:
+        la tecnología es el camino hacia el futuro».
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>La tecnología empieza con una idea.</h2>
+
+      <p>
+        Experimentamos, resolvemos retos y trabajamos
+        en equipo para convertir ideas en proyectos reales.
+      </p>
+
+      <b style="color:#65d2ff">
+        DISEÑO · CÓDIGO · INNOVACIÓN
+      </b>
+    </div>
+
+  </div>
+</section>
+
+<!-- APRENDIZAJES -->
+
+<section class="blue-section" id="aprendizajes">
+
+  <div class="wrap">
+
+    <div class="kicker">02 / LO QUE APRENDIMOS</div>
+
+    <h2 class="title">Nuestros aprendizajes</h2>
+
+    <p class="intro">
+      Durante el año exploramos distintas herramientas
+      y formas de crear. Cada área nos ayudó a desarrollar
+      habilidades para diseñar, programar y construir.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="ico">🐍</div>
+
+        <h3>SPIKE Prime + Python</h3>
+
+        <p>
+          Aprendimos a programar robots utilizando
+          Python para controlar sus movimientos,
+          sensores y acciones.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="ico">🧩</div>
+
+        <h3>SPIKE Prime con bloques</h3>
+
+        <p>
+          Utilizamos bloques de programación
+          para crear secuencias y controlar
+          los movimientos de los robots.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="ico">🧊</div>
+
+        <h3>Diseño 3D</h3>
+
+        <p>
+          Aprendimos a crear diseños tridimensionales
+          y convertir modelos digitales en objetos
+          físicos mediante impresión 3D.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="ico">📐</div>
+
+        <h3>Tinkercad</h3>
+
+        <p>
+          Utilizamos esta plataforma para diseñar
+          modelos 3D, combinar formas y preparar
+          nuestros diseños antes de imprimirlos.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+
+<section id="proyectos">
+
+  <div class="wrap">
+
+    <div class="kicker">03 / NUESTRO TRABAJO</div>
+
+    <h2 class="title">Proyectos realizados</h2>
+
+    <p class="intro">
+      Diseñamos soluciones tecnológicas para resolver
+      problemas y mejorar la organización de nuestro
+      entorno escolar.
+    </p>
+
+    <div class="projects">
+
+      <!-- PROYECTO 1 -->
+
+      <article class="project">
+
+        <div class="visual">
+          🔐
+        </div>
+
+        <div class="project-body">
+
+          <span class="project-tag">
+            DISEÑO 3D · TINKERCAD
+          </span>
+
+          <h3>Caja organizadora para seguros LEGO</h3>
+
+          <p>
+            Diseñamos una caja vertical con tapa extraíble
+            y espacio para colocar un candado, destinada
+            a guardar los seguros negros y amarillos de LEGO.
+          </p>
+
+          <p>
+            <b>Problema:</b>
+            Estas piezas pequeñas pueden perderse
+            fácilmente durante las clases de robótica.
+          </p>
+
+          <p>
+            <b>Solución:</b>
+            Crear un recipiente que permita guardar
+            y proteger las piezas, manteniéndolas
+            organizadas y seguras.
+          </p>
+
+          <p>
+            <b>Objetivo:</b>
+            Evitar la pérdida de materiales y mantener
+            organizado el espacio de trabajo.
+          </p>
+
+        </div>
+      </article>
+
+      <!-- PROYECTO 2 -->
+
+      <article class="project">
+
+        <div class="visual">
+          🖊️
+        </div>
+
+        <div class="project-body">
+
+          <span class="project-tag">
+            DISEÑO 3D · ORGANIZACIÓN
+          </span>
+
+          <h3>Caja organizadora de plumones</h3>
+
+          <p>
+            Diseñamos una caja para guardar los plumones
+            de pizarra del profesor, con un sistema
+            de cierre que permita controlar su uso.
+          </p>
+
+          <p>
+            <b>Problema:</b>
+            Algunos estudiantes utilizan los plumones
+            sin autorización, se los llevan o los
+            desperdician.
+          </p>
+
+          <p>
+            <b>Solución:</b>
+            Crear un organizador que mantenga los plumones
+            protegidos y bajo el control del profesor.
+          </p>
+
+          <p>
+            <b>Objetivo:</b>
+            Evitar pérdidas, cuidar los materiales
+            y reducir el desperdicio de plumones.
+          </p>
+
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+
+<section class="team-section" id="equipo">
+
+  <div class="wrap">
+
+    <div class="kicker">04 / QUIÉNES SOMOS</div>
+
+    <h2 class="title">Nuestro equipo</h2>
+
+    <p class="intro">
+      Somos un equipo que aprende, experimenta
+      y construye nuevas ideas mediante la tecnología.
+    </p>
+
+    <div class="team">
+
+      <div class="person">
+        <div class="avatar">01</div>
+        <h3>Nombre del integrante</h3>
+        <p>Integrante del equipo</p>
+      </div>
+
+      <div class="person">
+        <div class="avatar">02</div>
+        <h3>Nombre del integrante</h3>
+        <p>Integrante del equipo</p>
+      </div>
+
+      <div class="person">
+        <div class="avatar">03</div>
+        <h3>Nombre del integrante</h3>
+        <p>Integrante del equipo</p>
+      </div>
+
+      <div class="person">
+        <div class="avatar">04</div>
+        <h3>Nombre del integrante</h3>
+        <p>Integrante del equipo</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+
+<section id="galeria">
+
+  <div class="wrap">
+
+    <div class="kicker">05 / NUESTROS RECUERDOS</div>
+
+    <h2 class="title">Galería</h2>
+
+    <p class="intro">
+      Fotografías de nuestros diseños, actividades,
+      construcciones y proyectos realizados durante el año.
+    </p>
+
+    <div class="gallery">
+
+      <div class="shot">
+        <small>FOTOGRAFÍA 01</small>
+        <h3>Programación de robots</h3>
+      </div>
+
+      <div class="shot">
+        <small>FOTOGRAFÍA 02</small>
+        <h3>Diseños en Tinkercad</h3>
+      </div>
+
+      <div class="shot">
+        <small>FOTOGRAFÍA 03</small>
+        <h3>Impresión 3D</h3>
+      </div>
+
+      <div class="shot">
+        <small>FOTOGRAFÍA 04</small>
+        <h3>Trabajo en equipo</h3>
+      </div>
+
+      <div class="shot">
+        <small>FOTOGRAFÍA 05</small>
+        <h3>Caja organizadora LEGO</h3>
+      </div>
+
+      <div class="shot">
+        <small>FOTOGRAFÍA 06</small>
+        <h3>Organizador de plumones</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSIÓN -->
+
+<section class="conclusion" id="conclusion">
+
+  <div class="wrap">
+
+    <div class="kicker">06 / REFLEXIÓN FINAL</div>
+
+    <h2 class="title">Lo que nos llevamos</h2>
+
+    <div class="conbox">
+
+      <p>
+        Durante este año aprendimos que la robótica combina
+        creatividad, lógica y trabajo en equipo.
+        Desarrollamos habilidades de programación con Python
+        y bloques, exploramos el diseño 3D y utilizamos
+        Tinkercad para transformar ideas en modelos.
+      </p>
+
+      <p>
+        También aprendimos a identificar problemas,
+        proponer soluciones y mejorar nuestros proyectos
+        mediante la práctica.
+      </p>
+
+      <p>
+        Tech Master nos permitió descubrir que la tecnología
+        no solo consiste en utilizar herramientas, sino
+        también en imaginar, crear e innovar.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+
+  <b>TECH MASTER – ROBÓTICA 2026</b>
+
+  <br>
+
+  Colegio Clemente Althaus
+
+  <br>
+
+  Creamos hoy las ideas del futuro.
+
+</footer>
+
+</body>
+</html>
