@@ -7,6 +7,34 @@
 <title>TECH MASTER | ROBÓTICA 2026</title>
 
 <style>
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.brand img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.brand-text strong {
+    color: white;
+    font-size: 18px;
+}
+
+.brand-text small {
+    color: #65d2ff;
+    font-size: 11px;
+}
 :root {
   --navy: #07152f;
   --navy2: #0b2145;
@@ -527,9 +555,12 @@ footer b {
   <div class="navin">
 
     <a class="brand" href="#inicio">
-      <span>✦</span> TECH MASTER
-      <small>ROBÓTICA 2026</small>
-    </a>
+    <img src="imagenes/logo-bd.png" alt="Logo BD">
+    <div class="brand-text">
+        <strong>TECH MASTER</strong>
+        <small>ROBÓTICA 2026</small>
+    </div>
+</a>
 
     <nav class="links">
       <a href="#inicio">Inicio</a>
